@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Camera</title>
+</head>
+<body>
+    <h2>Camera is Ready</h2>
+    <p>Click the button below to capture an image of your hand sign:</p>
+    <form method="POST" action="{{ url_for('capture_image') }}">
+        <button type="submit" class="btn btn-success" onclick="startCamera()">Capture Image</button>
+    </form>
+
+    <script>
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                // Handle the camera stream here (e.g., display it in a video element)
+            } catch (error) {
+                console.error("Error accessing camera:", error);
+            }
+        }
+    </script>
+</body>
+</html>
